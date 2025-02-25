@@ -6,6 +6,6 @@ Works for ASUS ROG G531GU.
 
 **Void Linux:**
 
-    xbps install make cmake clang dbus-devel
+    xbps-install make cmake clang dbus-devel
     mkdir build && cd build
     cmake .. && make
