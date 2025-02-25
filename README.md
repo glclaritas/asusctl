@@ -1,5 +1,5 @@
 ## Compatible Devices
-Asus devices with asus-nb-wmi models maybe.  
+Asus devices with asus-nb-wmi kernel module maybe.  
 Works for ASUS ROG G531GU. 
 
 ## BUILDING
