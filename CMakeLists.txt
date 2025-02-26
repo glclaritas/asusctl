@@ -10,7 +10,9 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(DBUS REQUIRED dbus-1)
 
 # source
-set(SOURCES main.c)
+set(SOURCES
+    src/main.c
+)
 
 # output
 add_executable(asusctl ${SOURCES})

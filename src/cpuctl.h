@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include "./notify.h"
 
-unsigned long read_freq(const char *CPUDIR,int cpu_num, char *filename ){
+static unsigned long read_freq(const char *CPUDIR,int cpu_num, char *filename ){
     char readfile[100];
     int chars_written = snprintf(readfile, sizeof(readfile), "%s/cpu%d/cpufreq/%s",CPUDIR,cpu_num,filename);
     if ( chars_written < 0 || chars_written > sizeof(readfile) ) {
@@ -27,7 +27,7 @@ unsigned long read_freq(const char *CPUDIR,int cpu_num, char *filename ){
     return freq;
 }
 
-void write_freq(const char *CPUDIR, int cpu_num, unsigned long freq){
+static void write_freq(const char *CPUDIR, int cpu_num, unsigned long freq){
     char writefile[100];
     int chars_written = snprintf(writefile, sizeof(writefile), "%s/cpu%d/cpufreq/scaling_max_freq",CPUDIR,cpu_num);
     if ( chars_written < 0 || chars_written > sizeof(writefile) ) {

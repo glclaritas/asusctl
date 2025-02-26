@@ -1,5 +1,5 @@
-#include "src/cpuctl.h"
-#include "src/fanctl.h"
+#include "./cpuctl.h"
+#include "./fanctl.h"
 #include <string.h>
 
 int main(int argc, char *argv[]){
