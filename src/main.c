@@ -9,6 +9,7 @@ int main(int argc, char *argv[]){
         printf("\n                  --display");
         printf("\nExample: asusctl --cpumodetoggle\n");
         printf("Need Nerd Fonts.\n");
+        return 1;
     }
     if ( strcmp(argv[1], "--cpumodetoggle") == 0 ) {
         cpumode_toggle();
