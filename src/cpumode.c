@@ -43,15 +43,18 @@ int cpumode_toggle(){
     freqs[1] = read_freq(CPUFREQ_PATH "/policy0/base_frequency");
     freqs[2] = read_freq(CPUFREQ_PATH "/policy0/cpuinfo_max_freq");
     unsigned long cpumax_current = read_freq(CPUFREQ_PATH "/policy0/scaling_max_freq");
-        
-    int index = 0;
-    for ( int i = 0; i < 3; i++ ) {
-        if ( cpumax_current <= freqs[i] ) {
-            index = ( i + 1 ) % 3;
-            break;
+    int index=0;
+
+    for ( int i=0; i < 3; i++){
+        if ( cpumax_current == freqs[i] ) {
+            index = (i+1) % 3;
+            if ( cpumax_current != freqs[index] ) {
+                break;
+            }
         }
     }
     cpumax_current=freqs[index];
+        
     int cpu_count = sysconf(_SC_NPROCESSORS_ONLN);
     if ( cpu_count < 1 ) {
         return -1;
